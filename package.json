@@ -1,0 +1,19 @@
+{
+  "name": "sakura",
+  "version": "1.0.0",
+  "description": "Sakura : Bot by Pamort58",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "^11.3.2",
+    "ffmpeg-binaries": "^3.2.2-3",
+    "fs-extra": "^6.0.1",
+    "opusscript": "0.0.6",
+    "ytdl-core": "^0.20.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pamort58",
+  "license": "ISC"
+}
