@@ -35,7 +35,7 @@ function play(connection, message) {
 }
 
 //Login + connexion du bot :
-client.login("NDYwNDk5MDM4ODcwMDQ0Njcy.DhFozw.wHan0VJrGj72ANrtamKr3W4ncjs");
+client.login(process.env.TOKEN);
 
 client.on("ready", () => {
     console.log("Connexion en cours ...");
