@@ -63,6 +63,7 @@ client.on(`message`, message =>{
         .setFooter("Menu d'aide - By FilEeaZaiR")
         .setTimestamp()
         message.channel.send(aide_embed);
+        console.log(`Un utilisateur viens de faire la commande help !`)
     }
 
 //Commande help Modération :
