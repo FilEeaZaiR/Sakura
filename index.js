@@ -111,7 +111,7 @@ if(message.content === prefix + "music") {
     .setThumbnail(message.author.avatarURL)
     .addField(":musical_note: " + prefix + "play {lien YouTube}", `Mettre une musique en vocal`)
     .addField(":arrow_forward:  " + prefix + "skip", "changer de musique")
-    .addField(":x: " + prefix + "stop", "déconnecter le bot")
+    .addField(":x: " + prefix + "leave", "déconnecter le bot")
     .setFooter("Commande musique - By FilEeaZaiR")
     .setTimestamp()
     message.channel.send(music_embed);
@@ -765,7 +765,7 @@ client.on(`message`, message =>{
 
     break;
 
-  case "stop":
+  case "leave":
 
     if(!message.member.voiceChannel) 
     
