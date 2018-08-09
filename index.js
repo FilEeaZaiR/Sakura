@@ -35,17 +35,17 @@ function play(connection, message) {
 }
 
 function game1(){
-    RolesCrazy.user.setGame("Besoin d'aide ? " + prefix + "help");
+    client.user.setGame("Besoin d'aide ? " + prefix + "help");
     setTimeout(game2, 30000);
 };
 
 function game2(){
-    RolesCrazy.user.setGame(`Sakura By FilEeaZaiR`);
+    client.user.setGame(`Sakura By FilEeaZaiR`);
     setTimeout(game3, 30000);
 };
 
 function game3(){
-    RolesCrazy.user.setGame(`${RolesCrazy.guilds.array().length} servers | ${RolesCrazy.users.size} users`);
+    client.user.setGame(`${RolesCrazy.guilds.array().length} servers | ${RolesCrazy.users.size} users`);
     setTimeout(game1, 30000);
 };
 
