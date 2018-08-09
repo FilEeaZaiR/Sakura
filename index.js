@@ -598,13 +598,13 @@ if(!message.guild.member(message.author).hasPermission("MANAGE_GUILD")) return m
   }
   
 if (message.content === prefix + "friend") {
-		let user = msg.mentions.users.first()
+		let user = message.mentions.users.first()
 		user.addFriend()
 		message.channel.send("Alright, I've added " + user.username + " as Friend.");
 	}
 
 if (message.content === prefix + "roleslist") {
-		message.channel.send('```\n' + msg.guild.roles.map(r => r.name).join('\n') + '```')
+		message.channel.send('```\n' + message.guild.roles.map(r => r.name).join('\n') + '```')
 	}
 
 });
