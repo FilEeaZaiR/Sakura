@@ -34,12 +34,27 @@ function play(connection, message) {
     });
 }
 
+function game1(){
+    RolesCrazy.user.setGame("Besoin d'aide ? " + prefix + "help");
+    setTimeout(game2, 30000);
+};
+
+function game2(){
+    RolesCrazy.user.setGame(`Sakura By FilEeaZaiR`);
+    setTimeout(game3, 30000);
+};
+
+function game3(){
+    RolesCrazy.user.setGame(`${RolesCrazy.guilds.array().length} servers | ${RolesCrazy.users.size} users`);
+    setTimeout(game1, 30000);
+};
+
 //Login + connexion du bot :
 client.login(process.env.TOKEN);
 
 client.on("ready", () => {
     console.log("Connexion en cours ...");
-    client.user.setActivity("s!help : Bot by FilEeaZaiR");
+    setTimeout(game1, 30000);
 });
 
 //Ajout du bot a un serveur :
