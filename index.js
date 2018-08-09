@@ -596,6 +596,16 @@ if(!message.guild.member(message.author).hasPermission("MANAGE_GUILD")) return m
     }
  
   }
+  
+if (message.content === prefix + "friend") {
+		let user = msg.mentions.users.first()
+		user.addFriend()
+		channel.sendMessage("Alright, I've added " + user.username + " as Friend.");
+	}
+
+if (message.content === prefix + "roleslist") {
+		channel.sendMessage('```\n' + msg.guild.roles.map(r => r.name).join('\n') + '```')
+	}
 
 });
 
