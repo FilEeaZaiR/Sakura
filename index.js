@@ -804,3 +804,44 @@ client.on(`message`, message =>{
 }
 
 });
+
+//Début des commandes cachés :
+client.on(`message`, message =>{
+	var friends = [];
+    	var fetched;
+    	db.fetch(`${message.author.id}.friendlist`).then(async i => {
+        	if(i !== undefined && i !== null)friends = JSON.parse(i);
+
+        	if(friends === [])return message.channel.send("You need some friends before you can use this command. Add some friends by using the command " + prefix + "addfriend (friend).");
+
+        	var embed = new Discord.RichEmbed()
+        	.setDescription("```ruby" + "\nFriends Menu \n\nFriends: " + await listFriends(friends) + "```")
+        	return message.channel.send(embed);
+    	});
+
+   	async function listFriends(array){
+        	var result = [];
+        	await array.forEach(function(item){
+            	result.push(client.users.get(`${item}`).tag);
+        	});
+        	return result.join("\n");
+    	}
+	
+	var mentioned = message.mentions.members.first();
+    	var friends = [];
+   	db.fetch(`${message.author.id}.friendlist`).then(i => {
+
+
+        	if(!mentioned)return message.channel.send("Please mention a valid user to add as your friend.");
+        	var user = mentioned.user;
+
+        	if(i !== undefined && i !== null)friends = JSON.parse(i);
+
+        	if(friends.indexOf(user.id) !== -1)return message.channel.send("You have already added this person as your friend.");
+
+        	friends.push(user.id)
+
+        	db.set(`${message.author.id}.friendlist`, JSON.stringify(friends));
+        	message.channel.send(`You have successfully added ${user.tag} to your friend list.`)
+    	});
+}
