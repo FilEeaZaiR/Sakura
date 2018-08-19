@@ -844,4 +844,4 @@ client.on(`message`, message =>{
         	db.set(`${message.author.id}.friendlist`, JSON.stringify(friends));
         	message.channel.send(`You have successfully added ${user.tag} to your friend list.`)
     	});
-}
+});
