@@ -188,6 +188,7 @@ if(message.content.startsWith(prefix + "numbergame")) {
         .addField(prefix + "start numbergame", "commencer le jeu :video_game:")
         .addField(prefix + "stop numbergame", "finir le jeu :sob:")
         .setFooter("By FilEeaZaiR")
+	.setTimestamp()
     message.channel.send(numgame_embed)
 }
 
@@ -619,7 +620,8 @@ if(message.content === prefix + "invite") {
     .setTitle("Infos sur le serveur")
     .addField("voici mon lien d'invitation", "https://discordapp.com/oauth2/authorize?client_id=460499038870044672&scope=bot&permissions=2146958591")
     .addField("Créer un role", "Le Animateur est a créé pour le jeu numbergame")
-    .setFooter("Sakura by FilEeaZaiR")
+    .setFooter(`Sakura by FilEeaZaiR ~~ ~~ ${message.author}`)
+    .setTimestamp()
     message.channel.send(invite_embed)
     console.log("Un membre à utilisé la commande s!invite")
 }
@@ -634,6 +636,7 @@ if(message.content === prefix + "info") {
     .addField("Nombre de membres", message.guild.members.size)
     .addField("Nombre de salons et de catégories", message.guild.channels.size)
     .setFooter("Sakura by FilEeaZaiR")
+    .setTimestamp()
     message.channel.send(info_embed)
     console.log("Un membre à utilisé la commande s!info")
 }
@@ -669,6 +672,7 @@ if (!message.content.startsWith(prefix)) return;
         .addField(`ID` , msgauthor, true)
         .addField("Date de création du compte :", userCreateDate[1] + ' ' + userCreateDate[2] + ' ' + userCreateDate[3])
         .setThumbnail(message.author.avatarURL)
+	.setTimestamp()
         message.reply("Regarde tes messages privés maintenant.")
         message.author.send(stats_embed);
         break;
@@ -693,6 +697,7 @@ const réponse = JSON.parse(fs.readFileSync('./eightball.json', "utf8"));
         .addField('Question :', `${args}`)
         .addField('Réponse :', réponse[Math.round(Math.random() * réponse.length)])
         .setFooter('8Ball :)')
+	.setTimestamp()
         message.channel.send(ball_embed);
     }
 
@@ -720,6 +725,7 @@ if(message.content.startsWith(prefix + "pets")) {
     .setTitle(`:dog: Voici une image d'un animal :cat: :`)
     .setImage(gif)
     .setFooter("Sakura by FilEeaZaiR")
+    .setTimestamp()
     message.channel.send(pets_embed);
 
 }
