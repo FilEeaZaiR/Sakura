@@ -620,7 +620,7 @@ if(message.content === prefix + "invite") {
     .setTitle("Infos sur le serveur")
     .addField("voici mon lien d'invitation", "https://discordapp.com/oauth2/authorize?client_id=460499038870044672&scope=bot&permissions=2146958591")
     .addField("Créer un role", "Le Animateur est a créé pour le jeu numbergame")
-    .setFooter(`Sakura by FilEeaZaiR ~~ ~~ ${message.author}`)
+    .setFooter(`Sakura by FilEeaZaiR`)
     .setTimestamp()
     message.channel.send(invite_embed)
     console.log("Un membre à utilisé la commande s!invite")
