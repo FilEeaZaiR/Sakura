@@ -625,6 +625,18 @@ if(message.content === prefix + "invite") {
     message.channel.send(invite_embed)
     console.log("Un membre à utilisé la commande s!invite")
 }
+	
+//Commande d'invitation serv officiel :
+if(message.content === prefix + "officialserv") {
+    var invite_embed = new Discord.RichEmbed()
+    .setColor("18d67e")
+    .setTitle("Rejoins le serveur officiel")
+    .addField("Le serveur", "https://discord.gg/sy3FD4N")
+    .setFooter(`Sakura by FilEeaZaiR`)
+    .setTimestamp()
+    message.channel.send(invite_embed)
+    console.log("Un membre à utilisé la commande s!officialserv")
+}
 
 //Commande d'information serveur :
 if(message.content === prefix + "info") {
