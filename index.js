@@ -613,6 +613,20 @@ if (message.content === prefix + "roleslist") {
 //Début des commandes fun :
 client.on(`message`, message =>{
 
+//Commande de Ping :
+if (message.content.startsWith(prefix + "ping")) {
+    message.delete(message.author)
+    var now = require('performance-now');
+    var startTime = now();
+    message.channel.send("pong = calcul...")
+        .then(message => {
+        var endTime = now();
+    message.edit("pong :ping_pong: = " + Math.round(endTime - startTime) + " ms.");
+    console.log("ping")
+}).
+    catch(console.error);
+}
+
 //Commande d'invitation :
 if(message.content === prefix + "invite") {
     var invite_embed = new Discord.RichEmbed()
