@@ -75,7 +75,7 @@ client.on(`message`, message =>{
         .addField(":tools: Modération", "`Fais " + prefix + "mod` pour voir mes commandes de modération !")
         .addField(":tada: Fun", "`Fais " + prefix + "fun` pour voir mes commandes d'animation !")
         .addField(":musical_note: Musique", "`Fais " + prefix + "music` pour voir mes commandes musicales !")
-        .setFooter("Menu d'aide - By FilEeaZaiR")
+        .setFooter(`Commande exécutée par ${message.author.tag} - Menu d'aide - By FilEeaZaiR`)
         .setTimestamp()
         message.channel.send(aide_embed);
         console.log(`Un utilisateur viens de faire la commande help !`)
@@ -98,7 +98,7 @@ client.on(`message`, message =>{
         .addField(":warning: " + prefix + "warns <@user>", "warn l'utilisateur mentionné")
         .addField(":warning: " + prefix + "deletewarns <@user>", "enlevé un warn à l'utilisateur mentionné")
         .addField(":warning:  " + prefix + "seewarns <@user>", "voir les warns de l'utilisateur mentionné")
-        .setFooter("Commande modération - By FilEeaZaiR")
+        .setFooter(`Commande exécutée par ${message.author.tag} - Commande modération - By FilEeaZaiR`)
         .setTimestamp()
         message.channel.send(mod_embed);
     }
@@ -114,7 +114,7 @@ if(message.content === prefix + "fun") {
     .addField(":love_letter: " + prefix + "invite", "Tu m'invite ?")
     .addField(":bar_chart: " + prefix + "stats", "voir tes Stats")
     .addField(":information_desk_person: " + prefix + "info", "voir les infos du serveur")
-    .setFooter("Commande Fun - By FilEeaZaiR")
+    .setFooter(`Commande exécutée par ${message.author.tag} - Commande Fun - By FilEeaZaiR`)
     .setTimestamp()
     message.channel.send(fun_embed);
   }
@@ -128,7 +128,7 @@ if(message.content === prefix + "music") {
     .addField(":musical_note: " + prefix + "play {lien YouTube}", `Mettre une musique en vocal`)
     .addField(":arrow_forward:  " + prefix + "skip", "changer de musique")
     .addField(":x: " + prefix + "leave", "déconnecter le bot")
-    .setFooter("Commande musique - By FilEeaZaiR")
+    .setFooter(`Commande exécutée par ${message.author.tag} - Commande musique - By FilEeaZaiR`)
     .setTimestamp()
     message.channel.send(music_embed);
   }
@@ -145,10 +145,11 @@ if(message.content.startsWith(prefix + "sondage")) {
         let args = message.content.split(" ").slice(1);
         let ThingToEcho = args.join(" ")
         var sondage_embed = new Discord.RichEmbed()
-            .setDescription("Sondage")
-            .addField(ThingToEcho, "Répondre avec :white_check_mark: ou :x:")
-            .setColor("18d67e")
-            .setTimestamp()
+        .setDescription("Sondage")
+        .addField(ThingToEcho, "Répondre avec :white_check_mark: ou :x:")
+        .setColor("18d67e")
+	.setFooter(`Sondage par ${message.author.tag}`)
+        .setTimestamp()
         message.channel.send(sondage_embed)
         .then(function (message) {
             message.react("✅")
@@ -168,10 +169,11 @@ if(message.content.startsWith(prefix + "news")) {
         let args = message.content.split(" ").slice(1);
         let ThingToEcho = args.join(" ")
         var news_embed = new Discord.RichEmbed()
-            .setDescription("News-Règles")
-            .addField("News :", ThingToEcho)
-            .setColor("RANDOM")
-            .setTimestamp()
+        .setDescription("News-Règles")
+        .addField("News :", ThingToEcho)
+        .setColor("RANDOM")
+	.setFooter(`News par ${message.author.tag}`)
+        .setTimestamp()
         message.channel.send(news_embed)
         message.delete()
     }else{
@@ -187,7 +189,7 @@ if(message.content.startsWith(prefix + "numbergame")) {
         .addField(prefix + "numbergame", "Voir les commandes pour le jeu :tada:")
         .addField(prefix + "start numbergame", "commencer le jeu :video_game:")
         .addField(prefix + "stop numbergame", "finir le jeu :sob:")
-        .setFooter("By FilEeaZaiR")
+        .setFooter(`Commande exécutée par ${message.author.tag} - Sakura By FilEeaZaiR`)
 	.setTimestamp()
     message.channel.send(numgame_embed)
 }
@@ -613,20 +615,6 @@ if (message.content === prefix + "roleslist") {
 //Début des commandes fun :
 client.on(`message`, message =>{
 
-//Commande de Ping :
-if (message.content.startsWith(prefix + "ping")) {
-    message.delete(message.author)
-    var now = require('performance-now');
-    var startTime = now();
-    message.channel.send("pong = calcul...")
-        .then(message => {
-        var endTime = now();
-    message.edit("pong :ping_pong: = " + Math.round(endTime - startTime) + " ms.");
-    console.log("ping")
-}).
-    catch(console.error);
-}
-
 //Commande d'invitation :
 if(message.content === prefix + "invite") {
     var invite_embed = new Discord.RichEmbed()
@@ -634,7 +622,7 @@ if(message.content === prefix + "invite") {
     .setTitle("Infos sur le serveur")
     .addField("voici mon lien d'invitation", "https://discordapp.com/oauth2/authorize?client_id=460499038870044672&scope=bot&permissions=2146958591")
     .addField("Créer un role", `Le rôle "Animateur" est a créé pour le jeu numbergame \nLe rôle "Sondeur" est a créé pour le s!sondage \nLe rôle "News" est a créé pour le s!news`)
-    .setFooter(`Sakura by FilEeaZaiR`)
+    .setFooter(`Commande exécutée par ${message.author.tag} - Sakura By FilEeaZaiR`)
     .setTimestamp()
     message.channel.send(invite_embed)
     console.log("Un membre à utilisé la commande s!invite")
@@ -646,7 +634,7 @@ if(message.content === prefix + "officialserv") {
     .setColor("18d67e")
     .setTitle("Rejoins le serveur officiel")
     .addField("Le serveur", "https://discord.gg/sy3FD4N")
-    .setFooter(`Sakura by FilEeaZaiR`)
+    .setFooter(`Commande exécutée par ${message.author.tag} - Sakura By FilEeaZaiR`)
     .setTimestamp()
     message.channel.send(invite_embed)
     console.log("Un membre à utilisé la commande s!officialserv")
@@ -662,7 +650,7 @@ if(message.content === prefix + "info") {
     .addField("Nombre de membres", message.guild.members.size)
     .addField("Nombre de salons et de catégories", message.guild.channels.size)
     .addField("Liste des rôles (ordre de création)", message.guild.roles.map(r => r.name).join("\n"))
-    .setFooter("Sakura by FilEeaZaiR")
+    .setFooter(`Commande exécutée par ${message.author.tag} - Sakura By FilEeaZaiR`)
     .setTimestamp()
     message.channel.send(info_embed)
     console.log("Un membre à utilisé la commande s!info")
@@ -751,7 +739,7 @@ if(message.content.startsWith(prefix + "pets")) {
     .setColor('RANDOM')
     .setTitle(`:dog: Voici une image d'un animal :cat: :`)
     .setImage(gif)
-    .setFooter("Sakura by FilEeaZaiR")
+    .setFooter(`Commande exécutée par ${message.author.tag} - Sakura By FilEeaZaiR`)
     .setTimestamp()
     message.channel.send(pets_embed);
 
