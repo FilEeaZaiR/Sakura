@@ -661,7 +661,7 @@ if(message.content === prefix + "info") {
     .addField("Tu as rejoins le ", message.member.joinedAt)
     .addField("Nombre de membres", message.guild.members.size)
     .addField("Nombre de salons et de catégories", message.guild.channels.size)
-    .addField("Liste des rôles (ordre de création)", `message.guild.roles.map(r => r.name).join("\n")`)
+    .addField("Liste des rôles (ordre de création)", message.guild.roles.map(r => r.name).join("\n"))
     .setFooter("Sakura by FilEeaZaiR")
     .setTimestamp()
     message.channel.send(info_embed)
