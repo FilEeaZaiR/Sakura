@@ -641,19 +641,36 @@ if(message.content === prefix + "officialserv") {
 }
 
 //Commande d'information serveur :
-if(message.content === prefix + "info") {
+if(message.content.startsWith(prefix + "serveurinfos") || message.content.startsWith(prefix + "info") || message.content.startsWith(prefix + "si")) {
     var info_embed = new Discord.RichEmbed()
     .setColor("18d67e")
     .setTitle(`Infos sur le serveur : ${message.guild.name}`)
+    .addField("Propriétaire du serveur", message.guild.owner.user.tag)
     .addField("Serveur crée le ", message.guild.createdAt)
     .addField("Tu as rejoins le ", message.member.joinedAt)
     .addField("Nombre de membres", message.guild.members.size)
+    .addField("Nombre de bots", message.guild.members.filter(member => member.user.bot).size)
     .addField("Nombre de salons et de catégories", message.guild.channels.size)
+    .addField("Nombre de rôles", message.guild.roles.size)
     .addField("Liste des rôles (ordre de création)", message.guild.roles.map(r => r.name).join("\n"))
     .setFooter(`Commande exécutée par ${message.author.tag} - Sakura By FilEeaZaiR`)
     .setTimestamp()
     message.channel.send(info_embed)
     console.log("Un membre à utilisé la commande s!info")
+}
+	
+if(message.content.startsWith(prefix + "botinfos") || message.content.startsWith(prefix + "bi")) {
+    message.delete(message.autor)
+    let embed = new Discord.RichEmbed()
+    .setColor('#FE9901')
+    .setTitle("__Informations du Bot__")
+    .addField(":crown: Créateur :", "__FilEeaZaiR__")
+    .addField(":speech_balloon:Channels", client.channels.size, true)
+    .addField(":abcd:Username", client.user.username)
+    .addField(":1234:Discriminator", client.user.discriminator, true)
+    .setTimestamp()
+    .setFooter(`Commande exécutée par ${message.author.tag}`)
+    message.channel.send(embed)
 }
 
 //Commande pile ou face :
