@@ -668,6 +668,7 @@ if(message.content.startsWith(prefix + "botinfos") || message.content.startsWith
     .addField(":speech_balloon:Channels", client.channels.size, true)
     .addField(":abcd:Username", client.user.username)
     .addField(":1234:Discriminator", client.user.discriminator, true)
+    .addField("liste des serveurs", client.guilds.map(r =>`**${r.name}** | ` + `**${r.memberCount}** membres`))
     .setTimestamp()
     .setFooter(`Commande exécutée par ${message.author.tag}`)
     message.channel.send(embed)
