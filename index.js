@@ -285,14 +285,27 @@ if (message.content.startsWith(prefix + "ban")) {
     });
 }
 
-if(message.content.startsWith(prefix + "clear")) {
-    if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.channel.send ("Tu n'as pas la perm ;P");
-
-    let args = message.content.split(" ").slice(1);
-
-    if(!args[0]) return message.channel.send("Précise le nombre de message à supprimer !")
-    message.channel.bulkDelete(args[0]).then(() => {
-        message.channel.send(`${args[0]} messages ont été supprimés !`);
+if(message.content.startsWith(prefix + "purge") || message.content.startsWith(prefix + "clear")) {
+        let myrole = message.guild.member(client.user).hasPermission("MANAGE_MESSAGES"); //Récupère les droits nécessaires
+        let yourole = message.guild.member(message.author).hasPermission("MANAGE_MESSAGES"); //Récupère les droits nécessaires
+    
+        if (!myrole) {
+            return message.channel.send(":no_entry:**Je n'ai pas les permissions nécessaires pour effacer un/des message(s)**");
+        }
+    
+        if (!yourole) {
+            return message.channel.send(":no_entry:**Vous n'avez pas les permissions nécessaires**");
+        }
+    
+        var suppression = message.content.substr(8);
+        if (suppression < 2 || suppression > 10001) {
+            return message.reply(":warning:**La valeur que vous avez entré est invalide, merci de choisir une valeur comprise entre 2 et 10000**");
+        }
+        message.channel.bulkDelete(suppression, true).then(ok => {
+            message.reply("**Suppression de " + "" + suppression + "" + " messages**")
+            .then(message => setTimeout(function(){message.delete()}, 1000))
+            .catch(err => console.log(err));
+        
     })
 
 }
