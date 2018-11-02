@@ -60,6 +60,15 @@ client.on("ready", () => {
 //Ajout du bot a un serveur :
 client.on("guildCreate", guild => {
     console.log(`un nouveau serveur a été ajouté: ${guild.name} (id: ${guild.id}). Il contient ${guild.memberCount} membres!`);
+    const server = member.guild.channels.find(m => m.name === "★logs★");
+    if(!server) return;
+    const embed = new Discord.RichEmbed()
+    .setColor(`RANDOM`)
+    .addField("quelqu'un viens d'ajouter **Sakura** sur son serveur, nom du serveur:", guild.name) 
+    .addField("Propriétaire du serveur:", guild.owner.id)
+    .addField("nombre de personnes sur le serveur:", guild.memberCount)
+    .addField("ID du serveur: ", guild.id)
+server.send({embed})
 });
 
 //Début des commandes help :
