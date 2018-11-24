@@ -663,7 +663,7 @@ if(message.content === prefix + "officialserv") {
 }
 
 //Commande d'information serveur :
-if(message.content.startsWith(prefix + "serveurinfos") || message.content.startsWith(prefix + "info") || message.content.startsWith(prefix + "si")) {
+if(message.content.startsWith(prefix + "serveurinfos") || message.content.startsWith(prefix + "si")) {
     var info_embed = new Discord.RichEmbed()
     .setColor("18d67e")
     .setTitle(`Infos sur le serveur : ${message.guild.name}`)
