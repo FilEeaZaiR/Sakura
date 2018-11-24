@@ -655,7 +655,7 @@ if(message.content === prefix + "officialserv") {
     var invite_embed = new Discord.RichEmbed()
     .setColor("18d67e")
     .setTitle("Rejoins le serveur officiel")
-    .addField("Le serveur", "https://discord.gg/sy3FD4N")
+    .addField("Le serveur", "https://discord.gg/PSC3He6")
     .setFooter(`Commande exécutée par ${message.author.tag} - Sakura By FilEeaZaiR`)
     .setTimestamp()
     message.channel.send(invite_embed)
