@@ -693,14 +693,6 @@ if(message.content.startsWith(prefix + "botinfos") || message.content.startsWith
     .setTimestamp()
     .setFooter(`Commande exécutée par ${message.author.tag}`)
     message.channel.send(embed)
-	
-    let embed2 = new Discord.RichEmbed()
-    .setColor('#FE9901')
-    .setTitle("__Informations supplémentaire du Bot__")
-    .addField("liste des serveurs", client.guilds.map(r =>`**${r.name}** | ` + `**${r.memberCount}** membres`))
-    .setTimestamp()
-    .setFooter(`Commande exécutée par ${message.author.tag}`)
-    message.channel.send(embed2)
 }
 
 //Commande pile ou face :
