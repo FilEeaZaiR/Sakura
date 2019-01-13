@@ -42,7 +42,7 @@ console.log(`un nouveau serveur a été ajouté: ${guild.name} (id: ${guild.id})
             },
             {
                 name: `Nombre de personnes sur le serveur :`,
-                value: member.guild.memberCount,
+                value: guild.memberCount,
                 inline: true
             },
             {
