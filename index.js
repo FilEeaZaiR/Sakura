@@ -659,4 +659,60 @@ client.on(`message`, message =>{
 
     }
     
+    if(message.content.startsWith(prefix + "botinfo")|| message.content.startsWith(prefix + "bi")) {
+        
+        message.delete()
+
+        message.channel.send({embed:{
+                color: 3447003,
+                author: {
+                name: client.user.username,
+                icon_url: client.user.displayAvatarURL
+                },
+                title: "ServerInfo",
+                fields: [{
+                    name: "Propriaitaire du serveur :",
+                    value: message.guild.owner.user.tag,
+                    inline: true
+                },
+                {
+                    name: "Nom du serveur : ",
+                    value: message.guild.name,
+                    inline: true
+                },
+                {
+                    name: "Crée le : ",
+                    value: message.guild.createdAt,
+                    inline: true
+                },
+                {
+                    name: "Utilisateurs sur le serveur :",
+                    value: message.guild.memberCount,
+                    inline: true
+                },
+                {
+                    name: "Nombre de salons",
+                    value: message.guild.channels.size,
+                    inline: true
+                },
+                {
+                    name: "Nombre de rôles",
+                    value:  message.guild.roles.size,
+                    inline: true
+                },
+                {
+                    name: "liste de rôles",
+                    value: message.guild.roles.map(r => r.name).length > 900 ? "Trop de rôle" : message.guild.roles.map(r => r.name),
+                    inline: true
+                }],
+                timestamp: new Date(),
+                footer: {
+                    text: "SakuraInfo"
+                }
+    
+            }
+        });
+
+    }
+    
 });
