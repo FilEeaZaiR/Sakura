@@ -784,7 +784,7 @@ client.on(`message`, message =>{
         if (nb == 2) {
             message.channel.send({embed:{
                 color: 3447003,
-                title: "Pile",
+                title: "Face",
                 image: {
                     url: "https://cdn.discordapp.com/attachments/446336017851482117/447485423883649024/face.png"
                 },
