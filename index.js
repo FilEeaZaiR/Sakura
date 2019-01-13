@@ -552,7 +552,7 @@ client.on(`message`, message =>{
             dnd: "Do Not Disturb",
             offline: "Offline/Invisible"
         };
-        const mb = message.mentions.members.first() || message.guild.members.get(args[0]) || message.member;
+        const mb = message.mentions.members.first() ||  message.member;
         var userCreateDate = message.author.createdAt.toString().split(" ");
         var args = message.content.substring(prefix.length).split(" ");
         if (!mb) return message.reply("you have to fill in a valid user!");
