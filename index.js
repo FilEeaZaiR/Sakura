@@ -630,6 +630,11 @@ client.on(`message`, message =>{
                     inline: true
                 },
                 {
+                    name: ":desktop:Servers : ",
+                    value: client.guilds.array().length,
+                    inline: true
+                },
+                {
                     name: ":abcd:Username :",
                     value: client.user.username,
                     inline: true
