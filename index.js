@@ -547,10 +547,10 @@ client.on(`message`, message =>{
     
     if(message.content.startsWith(prefix + "userinfo")|| message.content.startsWith(prefix + "ui")) {
         const status = {
-            online: "Online",
-            idle: "Idle",
-            dnd: "\ud83d\udd34",
-            offline: "⚪"
+            online: "En ligne",
+            idle: "Inactif",
+            dnd: "Ne pas déranger",
+            offline: "Hors ligne/Invisible"
         };
         const mb = message.mentions.members.first() ||  message.member;
         var userCreateDate = message.author.createdAt.toString().split(" ");
@@ -562,27 +562,38 @@ client.on(`message`, message =>{
                 description: mb.user.tag,
                 fields: [{
                     name: "Ton ID : ",
-                    value: mb.user.id
+                    value: mb.user.id,
+                    inline: true
                 },
                 {
                     name: "Ton Pseudo : ",
-                    value: `${mb.nickname !== null ? `${mb.nickname}` : "No nickname"}`
+                    value: `${mb.nickname !== null ? `${mb.nickname}` : "No nickname"}`,
+                    inline: true
                 },
                 {
                     name: "Ton statue :",
-                    value: `${status[mb.user.presence.status]}`
+                    value: `${status[mb.user.presence.status]}`,
+                    inline: true
                 },
                 {
                     name: "Ton Jeux :",
-                    value: `${mb.user.presence.game ? `${mb.user.presence.game.name}` : "Nothing"}`
+                    value: `${mb.user.presence.game ? `${mb.user.presence.game.name}` : "Nothing"}`,
+                    inline: true
+                },
+                {
+                    name: "Rejoins le :",
+                    value: mb.joinedAt.toString(),
+                    inline: true
                 },
                 {
                     name: "Compte créé le :",
-                    value: userCreateDate[1] + ' ' + userCreateDate[2] + ' ' + userCreateDate[3]
+                    value: userCreateDate[1] + ' ' + userCreateDate[2] + ' ' + userCreateDate[3],
+                    inline: true
                 },
                 {
                     name: "Tes rôles",
-                    value: `${mb.roles.filter(r => r.id !== message.guild.id).map(roles => `\`${roles.name}\``).join(" **|** ") || "No Roles"}`
+                    value: `${mb.roles.filter(r => r.id !== message.guild.id).map(roles => `\`${roles.name}\``).join(" **|** ") || "No Roles"}`,
+                    inline: true
                 }],
                 timestamp: new Date(),
                 footer: {
