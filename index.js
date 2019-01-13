@@ -8,6 +8,8 @@ var servers = {};
 
 var prefix = "s!";
 
+var party_launch = false;
+
 var fs = require('fs');
 
 //Login + connexion du bot :
@@ -142,7 +144,7 @@ client.on(`message`, message =>{
             },
             {
                 name: ":tada: Fun:",
-                value: "`pileface`, `8ball`, `serverlist`, `numbergame`, `pets`",
+                value: "`pileface`, `8ball`, `numbergame`, `pets`",
                 inline: true
             },
             {
@@ -796,6 +798,145 @@ client.on(`message`, message =>{
                 
             });
         }
+    }
+    
+    const réponse = JSON.parse(fs.readFileSync('./eightball.json', "utf8"));
+
+    if(message.content.startsWith(prefix + "8ball")) {
+
+        var args = message.content.split(' ').join(' ').slice(7);
+
+        if(!args) return message.channel.send("Tu dois obligatoirement me poser une question !")
+        
+            message.channel.send({embed:{
+                color: 3447003,
+                title: "8ball",
+                fields: [{
+                    name: "Question :",
+                    value: args,
+                    inline: false
+                },
+                {
+                    name: "Réponse :",
+                    value: réponse[Math.round(Math.random() * réponse.length)],
+                    inline: false
+                }],
+                timestamp: new Date(),
+                footer: {
+                    text: "SakuraBall"
+                }
+            }
+                
+            });
+    }
+    
+    if(message.content.startsWith(prefix + "numbergame")) {
+        
+        message.channel.send({embed:{
+                color: 3447003,
+                title: "Find the number",
+                fields: [{
+                    name: prefix + "numbergame",
+                    value: "Voir les commandes pour le jeu :tada:",
+                    inline: true
+                },
+                {
+                    name: prefix + "start numbergame",
+                    value: "commencer le jeu :video_game:",
+                    inline: true
+                },
+                {
+                    name: prefix + "stop numbergame",
+                    value: "finir le jeu :sob:",
+                    inline: true
+                }],
+                timestamp: new Date(),
+                footer: {
+                    text: "SakuraHelpNumber"
+                }
+            }
+                
+            });
+    }
+
+    if(message.content.startsWith(prefix + "start numbergame")) {
+        message.channel.send(`:tada: Une partie viens d'être lancé par ${message.author.username} !`);
+
+            party_launch = true;
+
+            randnum = Math.floor(Math.random() * (2500 - 0) + 0)
+
+            console.log(randnum);
+    }
+
+    if(party_launch && message.content != null){
+
+        if(Number.isInteger(parseInt(message.content))){
+
+            if(message.content > randnum){
+
+                message.channel.send(`désolé ${message.author.username} le nombre est plus petit !`)
+
+            }
+
+            else if(message.content < randnum){
+
+                message.channel.send(`désolé ${message.author.username} le nombre est plus grand !`)
+
+            }
+
+            else{
+
+                message.channel.send(`Bien joué à ${message.author.username}, le nombre était ${randnum}`)
+                party_launch = false;
+
+            }
+
+        }
+    }
+
+    if(message.content.startsWith(prefix + "stop numbergame")) {
+        if(party_launch == true){
+            message.channel.send(`:weary: La partie viens d'être arrêté par ${message.author.username} !`)
+
+            party_launch = false;
+        }else {
+            message.channel.send(`:cry: désolé ${message.author.name} mais aucune partie n'a été lancé !`) 
+        }
+    }
+    
+    if(message.content.startsWith(prefix + "pets")) {
+
+        var pets = [
+
+            "https://media.giphy.com/media/3oEduUVL7wX5a1NBXq/giphy.gif",
+            "https://media.giphy.com/media/Dcf2hNSaAiLV6/giphy.gif",
+            "https://media.giphy.com/media/10ZEx0FoCU2XVm/giphy.gif",
+            "https://media.giphy.com/media/vAHZ9rc8rY8zm/giphy.gif",
+            "https://media.giphy.com/media/lHsCS3IickU7e/giphy.gif",
+            "https://media.giphy.com/media/l0Exk8EUzSLsrErEQ/giphy.gif",
+            "https://media.giphy.com/media/1trYyhnI4TGgM/giphy.gif",
+            "https://media.giphy.com/media/2ETTlMXeTxfTa/giphy.gif",
+            "https://media.giphy.com/media/l0MYRzcWP7cjfNQ2I/giphy.gif",
+            "https://media.giphy.com/media/3oKIPCSX4UHmuS41TG/giphy.gif"
+        ];
+
+        var gif = pets[Math.floor(Math.random() * pets.length)];
+
+        message.channel.send({embed:{
+                color: 3447003,
+                title: "Pets",
+                image: {
+                    url: gif
+                },
+                timestamp: new Date(),
+                footer: {
+                    text: "SakuraPets"
+                }
+            }
+                
+            });
+
     }
     
 });
