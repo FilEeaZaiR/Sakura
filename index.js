@@ -127,7 +127,9 @@ client.on(`message`, message =>{
             color: 0xFE6F01,
             title: ":robot: Voici mes catégories d'aide !",
             description: "Voici mes commandes disponible : (préfix :**" + prefix +"**)" ,
-            thumbnail: message.author.displayAvatarURL,
+            thumbnail: {
+                        url: message.author.displayAvatarURL
+            },
             fields: [
             {
                 name: ":tools: Modération",
@@ -150,5 +152,5 @@ client.on(`message`, message =>{
             }
         }
     });
-    }
+}
 });
