@@ -589,4 +589,3 @@ client.on(`message`, message =>{
                 }
     }});
 
-});
