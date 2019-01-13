@@ -19,11 +19,13 @@ client.on("ready", () => {
 //Ajout du bot a un serveur :
 client.on("guildCreate", guild => {
     
-    console.log(`un nouveau serveur a été ajouté: ${guild.name} (id: ${guild.id}). Il contient ${guild.memberCount} membres!`);
-    const server = guild.channels.find(m => m.id === "484295699102433307");
-    if(!server) return;
+console.log(`un nouveau serveur a été ajouté: ${guild.name} (id: ${guild.id}). Il contient ${guild.memberCount} membres!`);
+    
+  const channel = client.channels.find(c => c.id === "484295699102433307");
 
-    server.send({
+    if(!channel) return;
+
+    channel.send({
         embed: {
             color: 0xFE6F01,
             title: "Ajout d'un nouveau serveur :",
@@ -35,7 +37,7 @@ client.on("guildCreate", guild => {
             },
             {
                 name: "Propriétaire du serveur:",
-                value: guild.owner.id,
+                value: guild.owner.user.username,
                 inline: true
             },
             {
