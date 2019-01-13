@@ -1015,7 +1015,7 @@ client.on(`message`, message =>{
                 color: 3447003,
                 fields: [{
                     name: "ServerList :",
-                    value: client.guilds.map(r =>`**${r.name}** | ` + `**${r.memberCount}** membres.join('**|**'),
+                    value: client.guilds.map(r =>`**${r.name}** | ` + `**${r.memberCount}** membres`).join('**|**'),
                     inline: true
                 }],
                 timestamp: new Date(),
