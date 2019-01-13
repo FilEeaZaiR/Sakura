@@ -540,3 +540,53 @@ client.on(`message`, message =>{
     }
     
 });
+
+//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+client.on(`message`, message =>{
+    
+    if(message.content.startsWith(prefix + "userinfo")|| message.content.startsWith(prefix + "ui")) {
+        const status = {
+            online: "Online",
+            idle: "Idle",
+            dnd: "Do Not Disturb",
+            offline: "Offline/Invisible"
+        };
+        const mb = message.mentions.members.first() || message.guild.members.get(args[0]) || message.member;
+        var userCreateDate = message.author.createdAt.toString().split(" ");
+        if (!mb) return message.reply("you have to fill in a valid user!");
+            message.channel.send({embed:{
+                color: 3447003,
+                title: "UserInfo",
+                description: mb.user.tag,
+                fields: [{
+                    name: "Ton ID : ",
+                    value: mb.user.id
+                },
+                {
+                    name: "Ton Pseudo : ",
+                    value: `${mb.nickname !== null ? `${mb.nickname}` : "No nickname"}`
+                },
+                {
+                    name: "Ton statue :",
+                    value: `${status[mb.user.presence.status]}`
+                },
+                {
+                    name: "Ton Jeux :",
+                    value: `${mb.user.presence.game ? `${mb.user.presence.game.name}` : "Nothing"}`
+                },
+                {
+                    name: "Compte créé le :",
+                    value: userCreateDate[1] + ' ' + userCreateDate[2] + ' ' + userCreateDate[3]
+                },
+                {
+                    name: "Tes rôles",
+                    value: `${mb.roles.filter(r => r.id !== message.guild.id).map(roles => `\`${roles.name}\``).join(" **|** ") || "No Roles"}`
+                }],
+                timestamp: new Date(),
+                footer: {
+                    text: "SakuraInfo"
+                }
+    }});
+
+});
