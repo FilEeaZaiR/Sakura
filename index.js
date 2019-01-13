@@ -122,7 +122,7 @@ client.on(`message`, message =>{
 //Commande help générale :
     if(message.content === prefix + "help" || message.content === prefix + "aide") {
     console.log(`Un utilisateur viens de faire la commande help !`)
-    channel.send({
+    message.channel.send({
         embed: {
             color: 0xFE6F01,
             title: ":robot: Voici mes catégories d'aide !",
