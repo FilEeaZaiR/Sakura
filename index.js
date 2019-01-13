@@ -560,6 +560,9 @@ client.on(`message`, message =>{
                 color: 3447003,
                 title: "UserInfo",
                 description: mb.user.tag,
+                thumbnail: {
+                        url: message.author.displayAvatarURL
+                },
                 fields: [{
                     name: "Ton ID : ",
                     value: mb.user.id,
