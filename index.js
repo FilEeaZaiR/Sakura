@@ -547,10 +547,10 @@ client.on(`message`, message =>{
     
     if(message.content.startsWith(prefix + "userinfo")|| message.content.startsWith(prefix + "ui")) {
         const status = {
-            online: "En ligne",
-            idle: "Inactif",
-            dnd: "Ne pas déranger",
-            offline: "Hors ligne/Invisible"
+            online: "<:rondvert:534064371597312032> En ligne",
+            idle: "<:rond_orange:534047075910811649> Inactif",
+            dnd: ":red_circle: Ne pas déranger",
+            offline: ":white_circle: Hors ligne/Invisible"
         };
         const mb = message.mentions.members.first() ||  message.member;
         var userCreateDate = message.author.createdAt.toString().split(" ");
