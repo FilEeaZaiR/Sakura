@@ -608,4 +608,50 @@ client.on(`message`, message =>{
 
     };
     
+    if(message.content.startsWith(prefix + "botinfo")|| message.content.startsWith(prefix + "bi")) {
+    
+        message.delete()
+
+            message.channel.send({embed:{
+                color: 3447003,
+                author: {
+                name: client.user.username,
+                icon_url: client.user.displayAvatarURL
+                },
+                title: "BotInfo",
+                fields: [{
+                    name: ":crown: Createur : ",
+                    value: "FilEeaZaiR#1258",
+                    inline: true
+                },
+                {
+                    name: ":speech_balloon:Channels : ",
+                    value: client.channels.size,
+                    inline: true
+                },
+                {
+                    name: ":abcd:Username :",
+                    value: client.user.username,
+                    inline: true
+                },
+                {
+                    name: ":1234:Discriminator :",
+                    value: client.user.discriminator,
+                    inline: true
+                },
+                {
+                    name: ":clock5: Uptime :",
+                    value: Math.round(client.uptime / (1000 * 60 * 60)) + " hours, " + Math.round(client.uptime / (1000 * 60)) % 60 + " minutes, and " + Math.round(client.uptime / 1000) % 60 + " seconds",
+                    inline: true
+                }],
+                timestamp: new Date(),
+                footer: {
+                    text: "SakuraInfo"
+                }
+    
+            }
+        });
+
+    }
+    
 });
