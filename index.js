@@ -145,7 +145,12 @@ client.on(`message`, message =>{
                 name: ":information_source: Info",
                 value: "`userinfo`, `botinfo`, `serverinfo`, `officialserv`, `invite`",
                 inline: true
-            },],
+            },
+            {
+                name: ":books: Administration",
+                value: "`news`, `sondage`, `roleslist`, `serverlist`",
+                inline: true
+            }],
             timestamp: new Date(),
             footer: {
                 text: `SakuraHelp | FilEeaZaiR#1258`,
