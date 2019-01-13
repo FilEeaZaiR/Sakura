@@ -570,7 +570,7 @@ client.on(`message`, message =>{
                 },
                 {
                     name: "Ton Pseudo : ",
-                    value: `${mb.nickname !== null ? `${mb.nickname}` : "No nickname"}`,
+                    value: `${mb.nickname !== null ? `${mb.nickname}` : "Pas de pseudo modifié"}`,
                     inline: true
                 },
                 {
@@ -580,7 +580,7 @@ client.on(`message`, message =>{
                 },
                 {
                     name: "Ton Jeux :",
-                    value: `${mb.user.presence.game ? `${mb.user.presence.game.name}` : "Nothing"}`,
+                    value: `${mb.user.presence.game ? `${mb.user.presence.game.name}` : "Tu ne joue pas"}`,
                     inline: true
                 },
                 {
@@ -595,7 +595,7 @@ client.on(`message`, message =>{
                 },
                 {
                     name: "Tes rôles",
-                    value: `${mb.roles.filter(r => r.id !== message.guild.id).map(roles => `\`${roles.name}\``).join(" **|** ") || "No Roles"}`,
+                    value: `${mb.roles.filter(r => r.id !== message.guild.id).map(roles => `\`${roles.name}\``).join(" **|** ") || "Tu n'as pas de rôle"}`,
                     inline: true
                 }],
                 timestamp: new Date(),
