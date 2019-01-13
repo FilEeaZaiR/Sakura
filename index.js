@@ -759,3 +759,39 @@ client.on(`message`, message =>{
 });
 
 //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+client.on(`message`, message =>{
+    
+    let nb = Math.floor((Math.random() * 2) + 1);
+
+    if(message.content === prefix + "coin" || message.content === prefix + "pileface" ) {
+        
+        if (nb == 1) {
+            message.channel.send({embed:{
+                color: 3447003,
+                title: "Pile",
+                image: "https://cdn.discordapp.com/attachments/446336017851482117/447485421459603456/pile.png",
+                timestamp: new Date(),
+                footer: {
+                    text: "SakuraCoin"
+                }
+            }
+                
+            });
+        }
+        if (nb == 2) {
+            message.channel.send({embed:{
+                color: 3447003,
+                title: "Pile",
+                image: "https://cdn.discordapp.com/attachments/446336017851482117/447485423883649024/face.png",
+                timestamp: new Date(),
+                footer: {
+                    text: "SakuraCoin"
+                }
+            }
+                
+            });
+        }
+    }
+    
+});
