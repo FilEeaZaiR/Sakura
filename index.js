@@ -587,5 +587,7 @@ client.on(`message`, message =>{
                 footer: {
                     text: "SakuraInfo"
                 }
-    }});
+    }
+
+});
 
