@@ -591,6 +591,6 @@ client.on(`message`, message =>{
 
         });
 
-    });
+    };
     
 });
