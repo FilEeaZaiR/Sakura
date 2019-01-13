@@ -20,7 +20,7 @@ client.on("ready", () => {
 client.on("guildCreate", guild => {
     
     console.log(`un nouveau serveur a été ajouté: ${guild.name} (id: ${guild.id}). Il contient ${guild.memberCount} membres!`);
-    const server = member.guild.channels.find(m => m.id === "484295699102433307");
+    const server = guild.channels.find(m => m.id === "484295699102433307");
     if(!server) return;
 
     server.send({
