@@ -8,6 +8,8 @@ var servers = {};
 
 var prefix = "s!";
 
+var fs = require('fs');
+
 //Login + connexion du bot :
 client.login(process.env.TOKEN);
 
