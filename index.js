@@ -998,7 +998,7 @@ client.on(`message`, message =>{
                 color: 3447003,
                 fields: [{
                     name: "RoleList :",
-                    value: message.guild.roles.map(r => r.name).join('**|**'),
+                    value: message.guild.roles.map(r => '**${r.name}**').join('\n'),
                     inline: true
                 }],
                 timestamp: new Date(),
@@ -1015,7 +1015,7 @@ client.on(`message`, message =>{
                 color: 3447003,
                 fields: [{
                     name: "ServerList :",
-                    value: client.guilds.map(r =>`**${r.name}** | ` + `**${r.memberCount}** membres`).join('**|**'),
+                    value: client.guilds.map(r =>`**${r.name}** | ` + `**${r.memberCount}** membres`).join('\n'),
                     inline: true
                 }],
                 timestamp: new Date(),
