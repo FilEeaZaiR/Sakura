@@ -659,7 +659,7 @@ client.on(`message`, message =>{
 
     }
     
-    if(message.content.startsWith(prefix + "botinfo")|| message.content.startsWith(prefix + "bi")) {
+    if(message.content.startsWith(prefix + "serverinfo")|| message.content.startsWith(prefix + "si")) {
         
         message.delete()
 
