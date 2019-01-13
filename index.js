@@ -52,7 +52,7 @@ console.log(`un nouveau serveur a été ajouté: ${guild.name} (id: ${guild.id})
             }],
             timestamp: new Date(),
             footer: {
-                text: `ID : ${member.user.id} | FilEeaZaiR#1258`,
+                text: `SakuraLog | FilEeaZaiR#1258`,
             }
         }
     });
