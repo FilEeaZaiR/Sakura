@@ -715,4 +715,47 @@ client.on(`message`, message =>{
 
     }
     
+    if(message.content === prefix + "officialserv") {
+    console.log("Un membre à utilisé la commande s!officialserv")
+    message.channel.send({embed:{
+                color: 3447003,
+                title: "Rejoins le serveur officiel",
+                fields: [{
+                    name: "Le serveur :",
+                    value: "https://discord.gg/PSC3He6",
+                    inline: true
+                }],
+                timestamp: new Date(),
+                footer: {
+                    text: "SakuraServer"
+                }
+    
+            }
+        });
+    
+    }
+    
+    if(message.content === prefix + "invite") {
+    
+    console.log("Un membre à utilisé la commande s!invite")
+        
+    message.channel.send({embed:{
+                color: 3447003,
+                title: "Invitation",
+                fields: [{
+                    name: "Mon lien d'invitation :",
+                    value: "https://discordapp.com/oauth2/authorize?client_id=460499038870044672&scope=bot&permissions=2146958591",
+                    inline: true
+                }],
+                timestamp: new Date(),
+                footer: {
+                    text: "SakuraInvite"
+                }
+    
+            }
+        });
+    }
+    
 });
+
+//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
