@@ -549,7 +549,7 @@ client.on(`message`, message =>{
         const status = {
             online: "Online",
             idle: "Idle",
-            dnd: "Do Not Disturb",
+            dnd: "\ud83d\udd34",
             offline: "Offline/Invisible"
         };
         const mb = message.mentions.members.first() ||  message.member;
