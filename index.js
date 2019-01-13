@@ -940,3 +940,91 @@ client.on(`message`, message =>{
     }
     
 });
+
+//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+client.on(`message`, message =>{
+    
+    if(message.content.startsWith(prefix + "news")) {
+        if(message.guild.member(message.author).hasPermission("MENTION_EVERYONE")){
+            let args = message.content.split(" ").slice(1);
+            let ThingToEcho = args.join(" ")
+            message.channel.send({embed:{
+                color: 3447003,
+                title: "News",
+                fields: [{
+                    name: "News :",
+                    value: ThingToEcho,
+                    inline: true
+                }],
+                timestamp: new Date(),
+                footer: {
+                    text: "SakuraNews"
+                }
+            }
+                
+            });
+            message.delete()
+        }else{
+            return message.channel.send(" désolé, mais tu n'as pas la permission")
+        }
+    }
+    
+    if(message.content.startsWith(prefix + "sondage")) {
+        if(message.guild.member(message.author).hasPermission("MENTION_EVERYONE")){
+            let args = message.content.split(" ").slice(1);
+            let ThingToEcho = args.join(" ")
+            var sondage_embed = new Discord.RichEmbed()
+            .setDescription("Sondage")
+            .addField(ThingToEcho, "Répondre avec :white_check_mark: ou :x:")
+            .setColor("18d67e")
+	        .setFooter(`Sondage par ${message.author.tag}`)
+            .setTimestamp()
+            message.channel.send(sondage_embed)
+            .then(function (message) {
+                message.react("✅")
+                message.react("❌")
+            }).catch(function() {
+            });
+
+            message.delete()
+        }else{
+            return message.channel.send(" désolé, mais tu n'as pas la permission")
+        }
+    }
+    
+    if (message.content === prefix + "roleslist") {
+        message.channel.send({embed:{
+                color: 3447003,
+                fields: [{
+                    name: "RoleList :",
+                    value: message.guild.roles.map(r => r.name).join('**|**'),
+                    inline: true
+                }],
+                timestamp: new Date(),
+                footer: {
+                    text: "SakuraRoles"
+                }
+            }
+                
+            });
+	}
+    
+    if (message.content === prefix + "serverlist") {
+        message.channel.send({embed:{
+                color: 3447003,
+                fields: [{
+                    name: "ServerList :",
+                    value: client.guilds.map(r =>`**${r.name}** | ` + `**${r.memberCount}** membres.join('**|**'),
+                    inline: true
+                }],
+                timestamp: new Date(),
+                footer: {
+                    text: "SakuraServer"
+                }
+            }
+                
+            });
+	}
+    
+});
