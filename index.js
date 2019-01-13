@@ -550,7 +550,7 @@ client.on(`message`, message =>{
             online: "Online",
             idle: "Idle",
             dnd: "\ud83d\udd34",
-            offline: "Offline/Invisible"
+            offline: "⚪"
         };
         const mb = message.mentions.members.first() ||  message.member;
         var userCreateDate = message.author.createdAt.toString().split(" ");
