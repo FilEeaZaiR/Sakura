@@ -554,6 +554,7 @@ client.on(`message`, message =>{
         };
         const mb = message.mentions.members.first() || message.guild.members.get(args[0]) || message.member;
         var userCreateDate = message.author.createdAt.toString().split(" ");
+        var args = message.content.substring(prefix.length).split(" ");
         if (!mb) return message.reply("you have to fill in a valid user!");
             message.channel.send({embed:{
                 color: 3447003,
