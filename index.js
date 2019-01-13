@@ -770,7 +770,9 @@ client.on(`message`, message =>{
             message.channel.send({embed:{
                 color: 3447003,
                 title: "Pile",
-                image: "https://cdn.discordapp.com/attachments/446336017851482117/447485421459603456/pile.png",
+                image: {
+                    url :"https://cdn.discordapp.com/attachments/446336017851482117/447485421459603456/pile.png"
+                },
                 timestamp: new Date(),
                 footer: {
                     text: "SakuraCoin"
@@ -783,7 +785,9 @@ client.on(`message`, message =>{
             message.channel.send({embed:{
                 color: 3447003,
                 title: "Pile",
-                image: "https://cdn.discordapp.com/attachments/446336017851482117/447485423883649024/face.png",
+                image: {
+                    url: "https://cdn.discordapp.com/attachments/446336017851482117/447485423883649024/face.png"
+                },
                 timestamp: new Date(),
                 footer: {
                     text: "SakuraCoin"
