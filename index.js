@@ -59,7 +59,7 @@ console.log(`un nouveau serveur a été ajouté: ${guild.name} (id: ${guild.id})
 });
 
 //enlevement du bot a un serveur :
-client.on("guildRemove", guild => {
+client.on("guildDelete", guild => {
     
 console.log(`un serveur a été enlevé: ${guild.name} (id: ${guild.id}). Il contenait ${guild.memberCount} membres!`);
     
