@@ -57,3 +57,45 @@ console.log(`un nouveau serveur a été ajouté: ${guild.name} (id: ${guild.id})
         }
     });
 });
+
+//enlevement du bot a un serveur :
+client.on("guildRemove", guild => {
+    
+console.log(`un serveur a été enlevé: ${guild.name} (id: ${guild.id}). Il contenait ${guild.memberCount} membres!`);
+    
+  const channel = client.channels.find(c => c.id === "484295699102433307");
+
+    if(!channel) return;
+
+    channel.send({
+        embed: {
+            color: 0xFE6F01,
+            title: "enlevement d'un nouveau serveur :",
+            fields: [
+            {
+                name: "quelqu'un viens d'enlever **Sakura** sur son serveur, nom du serveur:",
+                value: guild.name,
+                inline: true
+            },
+            {
+                name: "Propriétaire du serveur:",
+                value: guild.owner.user.username,
+                inline: true
+            },
+            {
+                name: `Nombre de personnes sur le serveur :`,
+                value: guild.memberCount,
+                inline: true
+            },
+            {
+                name: "ID du serveur:",
+                value: guild.id,
+                inline: true
+            }],
+            timestamp: new Date(),
+            footer: {
+                text: `SakuraLog | FilEeaZaiR#1258`,
+            }
+        }
+    });
+});
