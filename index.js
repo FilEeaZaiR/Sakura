@@ -702,7 +702,7 @@ client.on(`message`, message =>{
                 },
                 {
                     name: "liste de rôles",
-                    value: message.guild.roles.map(r => r.name).length > 900 ? "Trop de rôle" : message.guild.roles.map(r => r.name),
+                    value: message.guild.roles.map(r => r.name).length > 900 ? "Trop de rôle" : message.guild.roles.map(r => r.name).join(" **|** "),
                     inline: true
                 }],
                 timestamp: new Date(),
