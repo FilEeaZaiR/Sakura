@@ -998,7 +998,7 @@ client.on(`message`, message =>{
                 color: 3447003,
                 fields: [{
                     name: "RoleList :",
-                    value: message.guild.roles.map(r => '**${r.name}**').join('\n'),
+                    value: message.guild.roles.map(r => r.name).length > 900 ? "Trop de rôle" : message.guild.roles.map(r => r.name).join('\n'),
                     inline: true
                 }],
                 timestamp: new Date(),
