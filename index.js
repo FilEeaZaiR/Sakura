@@ -17,11 +17,10 @@ client.login(process.env.TOKEN);
 
 client.on("ready", () => {
     console.log("Connexion en cours ...");
-    client.user.setActivity(`Reconstruction ...`);
     setInterval(function() {
 
         var statut = [
-          `Reconstruction ...`, 
+          `s!help for help ^^`, 
           `Sakura By FilEeaZaiR`,
           `${client.guilds.array().length} servers | ${client.users.size} users`];
     
