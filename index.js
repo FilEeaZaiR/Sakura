@@ -228,7 +228,33 @@ client.on(`message`, message =>{
  
                 message.delete();
  
-                message.channel.send(':warning: | **'+mentionned.tag+' à été averti**');
+                message.channel.send({
+			embed: {
+            			color: 0xFE6F01,
+            			title: ":warning: Warns",
+            			fields: [
+            			{
+                			name: "Un membre a bien était warn :",
+                			value: mentioned.tag,
+                			inline: true
+            			},
+            			{
+                			name: "Warn par :",
+                			value: message.author.username,
+                			inline: false
+            			},
+            			{
+                			name: "Raison du Warn :",
+                			value: args.slice(1).join(' '),
+                			inline: true
+            			}],
+            			timestamp: new Date(),
+            			footer: {
+                			text: `SakuraWarns | FilEeaZaiR#1258`,
+            			}
+        			}
+    			});
+		);
  
                 message.mentions.users.first().send(`:warning: **Warn |** depuis **${message.guild.name}** donné par **${message.author.username}**\n\n**Raison:** ` + args.slice(1).join(' '))
  
