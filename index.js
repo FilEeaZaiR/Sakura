@@ -255,7 +255,32 @@ client.on(`message`, message =>{
         		}
     		});
  
-                message.mentions.users.first().send(`:warning: **Warn |** depuis **${message.guild.name}** donné par **${message.author.username}**\n\n**Raison:** ` + args.slice(1).join(' '))
+                message.mentions.users.first().send(message.channel.send({
+			embed: {
+            			color: 0xFE6F01,
+            			title: ":warning: Warns",
+            			fields: [
+            			{
+                			name: "Serveur :",
+                			value: message.guild.name,
+                			inline: true
+            			},
+            			{
+                			name: "Warn par :",
+                			value: message.author.username,
+                			inline: false
+            			},
+            			{
+                			name: "Raison du Warn :",
+                			value: args.slice(1).join(' '),
+                			inline: true
+            			}],
+            			timestamp: new Date(),
+            			footer: {
+                			text: `SakuraWarns | FilEeaZaiR#1258`,
+            			}
+        		}
+    		});
  
           }else{
  
