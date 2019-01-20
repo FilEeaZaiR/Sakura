@@ -466,7 +466,7 @@ client.on(`message`, message =>{
                 					text: `SakuraWarns | FilEeaZaiR#1258`,
             					}
         				}
-				);
+				});
  
                                 return;
  
