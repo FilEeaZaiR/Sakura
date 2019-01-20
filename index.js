@@ -645,7 +645,7 @@ client.on(`message`, message =>{
                     inline: true
                 },
                 {
-                    name: "Ton status :",
+                    name: "Ton statut :",
                     value: `${status[mb.user.presence.status]}`,
                     inline: true
                 },
@@ -655,13 +655,8 @@ client.on(`message`, message =>{
                     inline: true
                 },
                 {
-                    name: "Rejoin le :",
+                    name: "Serveur rejoint le :",
                     value: mb.joinedAt.toString(),
-                    inline: true
-                },
-                {
-                    name: "Compte créé le :",
-                    value: mb.userCreateDate[1] + ' ' + mb.userCreateDate[2] + ' ' + mb.userCreateDate[3],
                     inline: true
                 },
                 {
