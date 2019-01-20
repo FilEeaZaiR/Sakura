@@ -16,22 +16,23 @@ var fs = require('fs');
 client.login(process.env.TOKEN);
 
 client.on("ready", () => {
-    console.log("Connexion en cours ...");
-    setInterval(function() {
+	if(err) console.log (err);
+	console.log("Connexion en cours ...");
+    	setInterval(function() {
 
-        var statut = [
-          `s!help for help ^^`, 
-          `Sakura By FilEeaZaiR`,
-          `${client.guilds.array().length} servers | ${client.users.size} users`];
+        	var statut = [
+          	`s!help for help ^^`, 
+          	`Sakura By FilEeaZaiR`,
+          	`${client.guilds.array().length} servers | ${client.users.size} users`];
     
-        var random = Math.floor(Math.random()*(statut.length));
+        	var random = Math.floor(Math.random()*(statut.length));
     
-        client.user.setPresence({ 
-            game: { 
-            name: statut[random],
-            type: 0
-          }
-        });
+        	client.user.setPresence({ 
+            		game: { 
+            		name: statut[random],
+            		type: 0
+          		}
+        	});
       }, 30000); 
 });
 
