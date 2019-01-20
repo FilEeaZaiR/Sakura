@@ -762,11 +762,6 @@ client.on(`message`, message =>{
                     inline: true
                 },
 		{
-                    name: "Bot(s) sur le serveur :",
-                    value: checkBots(message.guild),
-                    inline: true
-                },
-		{
                     name: "Région du serveur : ",
                     value: message.guild.region,
                     inline: true
