@@ -16,7 +16,6 @@ var fs = require('fs');
 client.login(process.env.TOKEN);
 
 client.on("ready", () => {
-	if(err) console.log (err);
 	console.log("Connexion en cours ...");
     	setInterval(function() {
 
