@@ -761,6 +761,16 @@ client.on(`message`, message =>{
                     value: message.guild.memberCount,
                     inline: true
                 },
+		{
+                    name: "Bot(s) sur le serveur :",
+                    value: checkBots(message.guild),
+                    inline: true
+                },
+		{
+                    name: "Région du serveur : ",
+                    value: message.guild.region,
+                    inline: true
+                },
                 {
                     name: "Nombre de salons",
                     value: message.guild.channels.size,
