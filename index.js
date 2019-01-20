@@ -255,7 +255,7 @@ client.on(`message`, message =>{
         		}
     		});
  
-                message.mentions.users.first().send(message.channel.send({
+                message.mentions.users.first().send({
 			embed: {
             			color: 0xFE6F01,
             			title: ":warning: Warns",
