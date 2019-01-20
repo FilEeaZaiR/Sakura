@@ -254,7 +254,7 @@ client.on(`message`, message =>{
             			}
         			}
     			});
-		);
+		});
  
                 message.mentions.users.first().send(`:warning: **Warn |** depuis **${message.guild.name}** donné par **${message.author.username}**\n\n**Raison:** ` + args.slice(1).join(' '))
  
