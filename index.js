@@ -386,7 +386,7 @@ client.on(`message`, message =>{
  
  
  
-    if (message.content.startsWith(prefix+"deletewarns")||message.content===prefix+"deletewarns") {
+    if (message.content.startsWith(prefix+"deletewarns")||message.content.startsWith(prefix+"dw")) {
  
         if (message.channel.type === "dm") return;
  
@@ -446,7 +446,27 @@ client.on(`message`, message =>{
  
                                 }
  
-                                message.channel.send(`Le warn de **${mentioned.tag}**\': **${args[1]}** a été enlevé avec succès!`);
+                                message.channel.send(
+					{embed: {
+            					color: 0xFE6F01,
+            					title: ":warning: Warns",
+            					fields: [
+            					{
+                					name: "Warn de ",
+                					value: mentioned.tag,
+                					inline: true
+            					},
+            					{
+                					name: "Warn supprimé :",
+                					value: args[1] ,
+                					inline: false
+            					}],
+            					timestamp: new Date(),
+            					footer: {
+                					text: `SakuraWarns | FilEeaZaiR#1258`,
+            					}
+        				}
+				);
  
                                 return;
  
