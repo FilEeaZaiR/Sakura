@@ -252,9 +252,8 @@ client.on(`message`, message =>{
             			footer: {
                 			text: `SakuraWarns | FilEeaZaiR#1258`,
             			}
-        			}
-    			});
-		});
+        		}
+    		});
  
                 message.mentions.users.first().send(`:warning: **Warn |** depuis **${message.guild.name}** donné par **${message.author.username}**\n\n**Raison:** ` + args.slice(1).join(' '))
  
