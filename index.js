@@ -661,7 +661,7 @@ client.on(`message`, message =>{
                 },
                 {
                     name: "Compte créé le :",
-                    value: userCreateDate[1] + ' ' + userCreateDate[2] + ' ' + userCreateDate[3],
+                    value: mb.userCreateDate[1] + ' ' + mb.userCreateDate[2] + ' ' + mb.userCreateDate[3],
                     inline: true
                 },
                 {
