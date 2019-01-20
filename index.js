@@ -645,17 +645,17 @@ client.on(`message`, message =>{
                     inline: true
                 },
                 {
-                    name: "Ton statue :",
+                    name: "Ton status :",
                     value: `${status[mb.user.presence.status]}`,
                     inline: true
                 },
                 {
-                    name: "Ton Jeux :",
+                    name: "Ton Jeu :",
                     value: `${mb.user.presence.game ? `${mb.user.presence.game.name}` : "Tu ne joue pas"}`,
                     inline: true
                 },
                 {
-                    name: "Rejoins le :",
+                    name: "Rejoin le :",
                     value: mb.joinedAt.toString(),
                     inline: true
                 },
