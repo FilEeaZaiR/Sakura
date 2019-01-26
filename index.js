@@ -148,7 +148,7 @@ client.on(`message`, message =>{
             },
             {
                 name: ":information_source: Info",
-                value: "`userinfo`, `botinfo`, `serverinfo`, `officialserv`, `invite`",
+                value: "`userinfo`, `botinfo`, `serverinfo`, `officialserv`, `invite`, `donation`",
                 inline: true
             },
             {
@@ -821,6 +821,27 @@ client.on(`message`, message =>{
                 timestamp: new Date(),
                 footer: {
                     text: "SakuraInvite"
+                }
+    
+            }
+        });
+    }
+
+    if(message.content === prefix + "donation") {
+    
+    console.log("Un membre à utilisé la commande s!donation")
+        
+    message.channel.send({embed:{
+                color: 3447003,
+                title: "Donation",
+                fields: [{
+                    name: "Mon lien de donation :",
+                    value: "https://www.paypal.me/FilEeaZaiR",
+                    inline: true
+                }],
+                timestamp: new Date(),
+                footer: {
+                    text: "SakuraDonation"
                 }
     
             }
