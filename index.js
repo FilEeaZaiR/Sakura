@@ -24,10 +24,10 @@ var fs = require('fs');
 
 //emojis :
 
-var off : ':gris:533971969280835584';
-var online : ":vert:533971969704722443";
-var idle : ":orange:533971969373372427>";
-var dnd : ":rouge:533971969755054083";
+var off = ':gris:533971969280835584';
+var online = ":vert:533971969704722443";
+var idle = ":orange:533971969373372427>";
+var dnd = ":rouge:533971969755054083";
 
 //Login + connexion du bot :
 client.login(process.env.TOKEN);
