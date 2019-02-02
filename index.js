@@ -22,6 +22,13 @@ var party_launch = false;
 
 var fs = require('fs');
 
+//emojis :
+
+var off : ':gris:533971969280835584';
+var online : ":vert:533971969704722443";
+var idle : ":orange:533971969373372427>";
+var dnd : ":rouge:533971969755054083";
+
 //Login + connexion du bot :
 client.login(process.env.TOKEN);
 
@@ -628,10 +635,10 @@ client.on(`message`, message =>{
     
     if(message.content.startsWith(prefix + "userinfo")|| message.content.startsWith(prefix + "ui")) {
         const status = {
-            online: "En ligne",
-            idle: "Inactif",
-            dnd: "Ne pas déranger",
-            offline: "Hors ligne/Invisible"
+            online: `${online} En ligne`,
+            idle: `${idle} Inactif`,
+            dnd: `${dnd} Ne pas déranger`,
+            offline: `${off} Hors ligne/Invisible`
         };
         const mb = message.mentions.members.first() ||  message.member;
         var userCreateDate = message.author.createdAt.toString().split(" ");
