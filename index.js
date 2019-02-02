@@ -3,6 +3,16 @@ const Discord = require('discord.js');
 
 const client = new Discord.Client();
 
+const ytdl = require('ytdl-core');
+
+const ySearch = require("youtube-search");
+
+const Song = require('./obj/Song.js');
+
+const MusicPlayer = require('./obj/MusicPlayer.js');
+
+const rp = require('request-promise');
+
 //Variables :
 var servers = {};
 
