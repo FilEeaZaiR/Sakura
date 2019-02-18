@@ -967,7 +967,6 @@ client.on(`message`, message =>{
     }
 
     if(message.content.startsWith(prefix + "start numbergame")) {
-	if message.guild.member(message.author).hasPermission("MANAGE_MESSAGES");
         	message.channel.send(`:tada: Une partie viens d'être lancé par ${message.author.username} !`);
 
             	party_launch = true;
@@ -1008,7 +1007,6 @@ client.on(`message`, message =>{
     }
 
     if(message.content.startsWith(prefix + "stop numbergame")) {
-	if message.guild.member(message.author).hasPermission("MANAGE_MESSAGES");
         	if(party_launch == true){
             		message.channel.send(`:weary: La partie viens d'être arrêté par ${message.author.username} !`)
 
