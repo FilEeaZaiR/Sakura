@@ -1027,7 +1027,12 @@ client.on(`message`, message =>{
             "https://media.giphy.com/media/2ETTlMXeTxfTa/giphy.gif",
             "https://media.giphy.com/media/l0MYRzcWP7cjfNQ2I/giphy.gif",
             "https://media.giphy.com/media/3oKIPCSX4UHmuS41TG/giphy.gif",
-	    "https://giphy.com/gifs/afvpets-cats-pets-afv-l41lTEXcm2fWlcidy"
+	    "https://media.giphy.com/media/F6Gbwzlcmbha8/giphy.gif",
+	    "https://media.giphy.com/media/ytwRLzOe5cXwA/giphy.gif",
+	    "https://media.giphy.com/media/F0eb5L2xJJJNC/giphy.gif",
+	    "https://media.giphy.com/media/CEdVDTtkvSelO/giphy.gif",
+	    "https://media.giphy.com/media/8vQSQ3cNXuDGo/giphy.gif",
+	    "https://media.giphy.com/media/tBxyh2hbwMiqc/giphy.gif"
         ];
 
         var gif = pets[Math.floor(Math.random() * pets.length)];
