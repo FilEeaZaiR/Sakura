@@ -967,14 +967,19 @@ client.on(`message`, message =>{
     }
 
     if(message.content.startsWith(prefix + "start numbergame")) {
-        message.channel.send(`:tada: Une partie viens d'être lancé par ${message.author.username} !`);
+	if message.guild.member(message.author).hasPermission("MANAGE_MESSAGES");
+        	message.channel.send(`:tada: Une partie viens d'être lancé par ${message.author.username} !`);
 
-            party_launch = true;
+            	party_launch = true;
 
-            randnum = Math.floor(Math.random() * (2500 - 0) + 0)
+            	randnum = Math.floor(Math.random() * (2500 - 0) + 0)
 
-            console.log(randnum);
-    }
+            	console.log(randnum);
+    	}else{
+		
+		message.channel.send(`Désolé ${message.author.username} tu n'as pas la permission.`);
+	
+	}
 
     if(party_launch && message.content != null){
 
@@ -1003,14 +1008,20 @@ client.on(`message`, message =>{
     }
 
     if(message.content.startsWith(prefix + "stop numbergame")) {
-        if(party_launch == true){
-            message.channel.send(`:weary: La partie viens d'être arrêté par ${message.author.username} !`)
+	if message.guild.member(message.author).hasPermission("MANAGE_MESSAGES");
+        	if(party_launch == true){
+            		message.channel.send(`:weary: La partie viens d'être arrêté par ${message.author.username} !`)
 
-            party_launch = false;
-        }else {
-            message.channel.send(`:cry: désolé ${message.author.name} mais aucune partie n'a été lancé !`) 
-        }
-    }
+            		party_launch = false;
+        	}else {
+            		message.channel.send(`:cry: désolé ${message.author.name} mais aucune partie n'a été lancé !`) 
+        	}
+    	}else{
+		
+		message.channel.send(`Désolé ${message.author.username} tu n'as pas la permission.`);
+		
+	}
+		
     
     if(message.content.startsWith(prefix + "pets")) {
 
@@ -1025,7 +1036,8 @@ client.on(`message`, message =>{
             "https://media.giphy.com/media/1trYyhnI4TGgM/giphy.gif",
             "https://media.giphy.com/media/2ETTlMXeTxfTa/giphy.gif",
             "https://media.giphy.com/media/l0MYRzcWP7cjfNQ2I/giphy.gif",
-            "https://media.giphy.com/media/3oKIPCSX4UHmuS41TG/giphy.gif"
+            "https://media.giphy.com/media/3oKIPCSX4UHmuS41TG/giphy.gif",
+	    "https://giphy.com/gifs/afvpets-cats-pets-afv-l41lTEXcm2fWlcidy"
         ];
 
         var gif = pets[Math.floor(Math.random() * pets.length)];
