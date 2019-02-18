@@ -974,11 +974,7 @@ client.on(`message`, message =>{
             	randnum = Math.floor(Math.random() * (2500 - 0) + 0)
 
             	console.log(randnum);
-    	}else{
-		
-		message.channel.send(`Désolé ${message.author.username} tu n'as pas la permission.`);
-	
-	}
+    	}
 
     if(party_launch && message.content != null){
 
@@ -1014,11 +1010,7 @@ client.on(`message`, message =>{
         	}else {
             		message.channel.send(`:cry: désolé ${message.author.name} mais aucune partie n'a été lancé !`) 
         	}
-    	}else{
-		
-		message.channel.send(`Désolé ${message.author.username} tu n'as pas la permission.`);
-		
-	}
+    	}
 		
     
     if(message.content.startsWith(prefix + "pets")) {
