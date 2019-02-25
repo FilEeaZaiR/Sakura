@@ -199,7 +199,7 @@ client.on(`message`, message =>{
  
     if(message.mentions.users.size === 0) {
  
-        return message.channel.send("**:x: Vous n'avez mentionnée aucun utilisateur**");
+        return message.channel.send("**:x: Vous n'avez mentionné aucun utilisateur**");
  
     }else{
  
@@ -251,7 +251,7 @@ client.on(`message`, message =>{
             			title: ":warning: Warns",
             			fields: [
             			{
-                			name: "Un membre a bien était warn :",
+                			name: "Un membre a bien été warn :",
                 			value: mentioned.tag,
                 			inline: true
             			},
@@ -301,19 +301,19 @@ client.on(`message`, message =>{
  
           }else{
  
-                message.channel.send("Erreur mauvais usage: "+prefix+"warn <user> <raison>");
+                message.channel.send("Erreure, mauvais usage: "+prefix+"warn <user> <raison>");
  
                 }
  
             }else{
  
-                message.channel.send("Erreur mauvais usage: "+prefix+"warn <user> <raison>");
+                message.channel.send("Erreure, mauvais usage: "+prefix+"warn <user> <raison>");
  
               }
  
         }else{
  
-            message.channel.send("Erreur mauvais usage: "+prefix+"warn <user> <raison>");
+            message.channel.send("Erreure, mauvais usage: "+prefix+"warn <user> <raison>");
  
         }
  
@@ -379,7 +379,7 @@ client.on(`message`, message =>{
  
                 }else{
  
-                    message.channel.send("Erreur mauvais usage: "+prefix+"seewarns <user> <raison>");
+                    message.channel.send("Erreure, mauvais usage: "+prefix+"seewarns <user> <raison>");
  
                     console.log(args);
  
@@ -387,7 +387,7 @@ client.on(`message`, message =>{
  
             }else{
  
-                message.channel.send("Erreur mauvais usage: "+prefix+"seewarns <user> <raison>");
+                message.channel.send("Erreure, mauvais usage: "+prefix+"seewarns <user> <raison>");
  
             }
  
@@ -499,19 +499,19 @@ client.on(`message`, message =>{
  
                             }else{
  
-                                message.channel.send("Erreur mauvais usage: "+prefix+"deletewarns <utilisateur> <nombre>");
+                                message.channel.send("Erreure, mauvais usage: "+prefix+"deletewarns <utilisateur> <nombre>");
  
                             }
  
                         }else{
  
-                            message.channel.send("Erreur mauvais usage: "+prefix+"deletewarns <utilisateur> <nombre>");
+                            message.channel.send("Erreure, mauvais usage: "+prefix+"deletewarns <utilisateur> <nombre>");
  
                         }
  
                     }else{
  
-                        message.channel.send("Erreur mauvais usage: "+prefix+"deletewarns <utilisateur> <nombre>");
+                        message.channel.send("Erreure, mauvais usage: "+prefix+"deletewarns <utilisateur> <nombre>");
  
                     }
  
@@ -537,7 +537,7 @@ client.on(`message`, message =>{
         }
 
         if(!message.guild.member(client.user).hasPermission("KICK_MEMBERS")) {
-            return message.channel.send("Je n'ai pas la perm pour cette commande");
+            return message.channel.send("Je n'ai pas la permission pour effectuer cette commande");
         }
 
         kick.kick().then(member => {
@@ -558,7 +558,7 @@ client.on(`message`, message =>{
         }
 
         if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) {
-            return message.channel.send("Je n'ai pas la perm pour cette commande");
+            return message.channel.send("Je n'ai pas la permission pour effectuer cette commande");
         }
 
         ban.ban().then(member => {
@@ -579,8 +579,8 @@ client.on(`message`, message =>{
         }
     
         var suppression = message.content.substr(8);
-        if (suppression < 2 || suppression > 10001) {
-            return message.reply(":warning:**La valeur que vous avez entré est invalide, merci de choisir une valeur comprise entre 2 et 10000**");
+        if (suppression < 2 || suppression > 101) {
+            return message.reply(":warning: **La valeure que vous avez entré est invalide, merci de choisir une valeur comprise entre 2 et 100**");
         }
         message.channel.bulkDelete(suppression, true).then(ok => {
             message.reply("**Suppression de " + "" + suppression + "" + " messages**")
@@ -595,12 +595,12 @@ client.on(`message`, message =>{
         if(!message.guild.member(message.author).hasPermission("ADMINISTRATOR")) return message.channel.send("Vous n'avez pas la permission !");
 
         if(message.mentions.users.size === 0) {
-            return message.channel.send("Tu dois mentionner quelqu'un pour faire cette commande");
+            return message.channel.send("Tu dois mentionner quelqu'un pour effectuer cette commande");
         }
 
         var mute = message.guild.member(message.mentions.users.first());
         if(!mute) {
-            return message.channel.send("Je n'ai pas trouvé l'utilisateur ou il l'existe pas !");
+            return message.channel.send("Je n'ai pas trouvé l'utilisateur ou il n'existe pas !");
         }
 
         if(!message.guild.member(client.user).hasPermission("ADMINISTRATOR")) return message.channel.send("Je n'ai pas la permission !");
@@ -618,7 +618,7 @@ client.on(`message`, message =>{
 
         var mute = message.guild.member(message.mentions.users.first());
         if(!mute) {
-            return message.channel.send("Je n'ai pas trouvé l'utilisateur ou il l'existe pas !");
+            return message.channel.send("Je n'ai pas trouvé l'utilisateur ou il n'existe pas !");
         }
 
         if(!message.guild.member(client.user).hasPermission("ADMINISTRATOR")) return message.channel.send("Je n'ai pas la permission !");
@@ -637,7 +637,7 @@ client.on(`message`, message =>{
         const status = {
             online: `<${online}> En ligne`,
             idle: `<${idle}> Inactif`,
-            dnd: `<${dnd}> Ne pas dérange`,
+            dnd: `<${dnd}> Ne pas déranger`,
             offline: `<${off}> Hors ligne/Invisible`
         };
         const mb = message.mentions.members.first() ||  message.member;
@@ -708,28 +708,28 @@ client.on(`message`, message =>{
                     inline: true
                 },
                 {
-                    name: ":speech_balloon:Channels : ",
+                    name: ":speech_balloon: Channels : ",
                     value: client.channels.size,
                     inline: true
                 },
                 {
-                    name: ":desktop:Servers : ",
+                    name: ":desktop: Servers : ",
                     value: client.guilds.array().length,
                     inline: true
                 },
                 {
-                    name: ":abcd:Username :",
+                    name: ":abcd: Username :",
                     value: client.user.username,
                     inline: true
                 },
                 {
-                    name: ":1234:Discriminator :",
+                    name: ":1234: Discriminator :",
                     value: client.user.discriminator,
                     inline: true
                 },
                 {
                     name: ":clock5: Uptime :",
-                    value: Math.round(client.uptime / (1000 * 60 * 60)) + " hours, " + Math.round(client.uptime / (1000 * 60)) % 60 + " minutes, and " + Math.round(client.uptime / 1000) % 60 + " seconds",
+                    value: Math.round(client.uptime / (1000 * 60 * 60)) + " heures, " + Math.round(client.uptime / (1000 * 60)) % 60 + " minutes, et " + Math.round(client.uptime / 1000) % 60 + " secondes",
                     inline: true
                 }],
                 timestamp: new Date(),
@@ -804,7 +804,7 @@ client.on(`message`, message =>{
     }
     
     if(message.content === prefix + "officialserv") {
-    console.log("Un membre à utilisé la commande s!officialserv")
+    console.log("Un membre a utilisé la commande s!officialserv")
     message.channel.send({embed:{
                 color: 3447003,
                 title: "Rejoins le serveur officiel",
@@ -825,7 +825,7 @@ client.on(`message`, message =>{
     
     if(message.content === prefix + "invite") {
     
-    console.log("Un membre à utilisé la commande s!invite")
+    console.log("Un membre a utilisé la commande s!invite")
         
     message.channel.send({embed:{
                 color: 3447003,
@@ -846,7 +846,7 @@ client.on(`message`, message =>{
 
     if(message.content === prefix + "donation") {
     
-    console.log("Un membre à utilisé la commande s!donation")
+    console.log("Un membre a utilisé la commande s!donation")
         
     message.channel.send({embed:{
                 color: 3447003,
@@ -967,7 +967,7 @@ client.on(`message`, message =>{
     }
 
     if(message.content.startsWith(prefix + "start numbergame")) {
-        	message.channel.send(`:tada: Une partie viens d'être lancé par ${message.author.username} !`);
+        	message.channel.send(`:tada: Une partie viens d'être lancée par ${message.author.username} !`);
 
             	party_launch = true;
 
@@ -1004,7 +1004,7 @@ client.on(`message`, message =>{
 
     if(message.content.startsWith(prefix + "stop numbergame")) {
         	if(party_launch == true){
-            		message.channel.send(`:weary: La partie viens d'être arrêté par ${message.author.username} !`)
+            		message.channel.send(`:weary: La partie viens d'être arrêtée par ${message.author.username} !`)
 
             		party_launch = false;
         	}else {
